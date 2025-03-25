@@ -6,6 +6,9 @@ function transformArr(arr) {
     }
     const prev = acc[acc.length - 1];
     const next = arr[idx + 1];
+    if (prev === 0) {
+      return [...acc, 0];
+    }
     const checkArr = [prev, next, curr].filter((num) => num > 0);
     const value = Math.min(...checkArr);
     return [...acc, value];
@@ -90,7 +93,6 @@ function validateInput() {
         });
       });
       container.appendChild(table1);
-
     } else {
       throw new Error("Input must be an array of numbers (e.g., [1, 2, 3])");
     }
