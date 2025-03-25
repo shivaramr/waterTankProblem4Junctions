@@ -66,13 +66,13 @@ function validateInput() {
           }
         });
       });
-      
+
       table1.append(
-        ...Array.from({ length: height }, (_, rowIndex) => {
+        ...Array.from({ length: height }, (_) => {
           const row = document.createElement("tr");
 
           row.append(
-            ...Array.from({ length: width }, (_, colIndex) => {
+            ...Array.from({ length: width }, (_) => {
               const cell = document.createElement("td");
               return cell;
             })
