@@ -6,10 +6,13 @@ function transformArr(arr) {
     }
     const prev = acc[acc.length - 1];
     const next = arr[idx + 1];
-    if (prev === 0) {
+    const future = arr.filter((_, idx1) => idx1 > idx).find((num) => num > 0);
+
+    if (prev === 0 || !future) {
       return [...acc, 0];
     }
-    const checkArr = [prev, next, curr].filter((num) => num > 0);
+
+    const checkArr = [prev, next, curr, future].filter((num) => num > 0);
     const value = Math.min(...checkArr);
     return [...acc, value];
   }, []);
