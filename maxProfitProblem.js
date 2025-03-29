@@ -36,9 +36,9 @@ function maxProfit(n) {
     const pCount = curr.filter((num) => num === 4).length;
     const cCount = curr.filter((num) => num === 10).length;
 
-    const tEarnings = getTotalTheatreOperatingTime(n, tCount, 5) * 1500;
-    const pEarnings = getTotalTheatreOperatingTime(n, pCount, 4) * 1000;
-    const cEarnings = getTotalTheatreOperatingTime(n, cCount, 10) * 3000;
+    const tEarnings = getTotalTheatreOperatingTime(n - pCount * 4 - cCount * 10, tCount, 5) * 1500;
+    const pEarnings = getTotalTheatreOperatingTime(n - tCount * 5 - cCount * 10, pCount, 4) * 1000;
+    const cEarnings = getTotalTheatreOperatingTime(n - pCount * 4 - tCount * 5, cCount, 10) * 3000;
     const earnings = tEarnings + pEarnings + cEarnings;
 
     const obj = { earnings: earnings, options: { T: tCount, P: pCount, C: cCount } };
